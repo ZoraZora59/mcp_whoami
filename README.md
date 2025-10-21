@@ -310,6 +310,45 @@ curl -X POST http://localhost:8081/mcp/tools/call \
 4. **独立服务**：业务服务和MCP服务独立部署和运行
 5. **标准协议**：MCP服务遵循MCP协议规范
 
+## Cursor 集成
+
+MCP 服务支持两种模式：
+
+1. **HTTP 模式**（用于测试和调试）
+2. **stdio 模式**（用于 Cursor 等 AI 客户端）
+
+### 在 Cursor 中使用
+
+1. **启动业务服务：**
+   ```bash
+   ./start-business.sh
+   ```
+
+2. **配置 Cursor MCP（已自动配置）：**
+   配置文件位于 `/root/.cursor/mcp.json`：
+   ```json
+   {
+     "mcpServers": {
+       "whoami": {
+         "command": "/root/gitee/mcp_whoami/mcp-service/mcp-service",
+         "args": ["--stdio"],
+         "env": {
+           "BUSINESS_SERVICE_URL": "http://localhost:8080"
+         }
+       }
+     }
+   }
+   ```
+
+3. **重启 Cursor**
+
+4. **在 Cursor 中使用：**
+   - "帮我创建一个工号为 E001 的员工，叫张三，男，30岁"
+   - "查询工号 E001 的员工信息"
+   - "列出所有员工"
+
+详细说明请参考 [CURSOR_INTEGRATION.md](CURSOR_INTEGRATION.md)
+
 ## 后续扩展
 
 ### 切换到MySQL
