@@ -1,6 +1,9 @@
 # 编译产物
 business-service/business-service
 mcp-service/mcp-service
+bin/
+build/
+dist/
 *.exe
 *.exe~
 *.dll
@@ -10,6 +13,14 @@ mcp-service/mcp-service
 # 测试产物
 *.test
 *.out
+coverage.txt
+coverage.html
+*.prof
+
+# 构建脚本产物
+*.log
+*.pid
+nohup.out
 
 # Go工作空间文件
 go.work
