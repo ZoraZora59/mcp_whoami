@@ -1,0 +1,30 @@
+# 编译产物
+business-service/business-service
+mcp-service/mcp-service
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# 测试产物
+*.test
+*.out
+
+# Go工作空间文件
+go.work
+
+# 依赖目录
+vendor/
+
+# IDE相关
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+
